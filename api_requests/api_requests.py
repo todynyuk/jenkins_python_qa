@@ -4,7 +4,7 @@ import json
 from utils.json_utils import write_response_to_file
 
 base_url = "https://reqres.in/"
-FILE_PATH = "/Users/tarasodynyuk/PycharmProjects/web_tests/resources/api/"
+FILE_PATH = "resource/api/"
 
 
 class ReqresInApi:

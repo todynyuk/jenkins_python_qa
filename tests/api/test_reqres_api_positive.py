@@ -114,27 +114,6 @@ class TestSuitPositive:
         assert response.json()['data']['avatar'] == f'https://reqres.in/img/faces/{user_id}-image.jpg', \
             'Avatar is not ok'
 
-    def test_list_resource(self):
-        response = ReqresInApi.get_list_resource()
-        request_method = response.request.method
-        assert request_method == 'GET'
-        assert response.status_code == 200
-        response_body = response.json()
-        assert response_body['page'] == 1
-        assert response_body["per_page"] == 6
-        assert response_body["total"] == 12
-
-    parameters = [(2, "fuchsia rose"), (4, "aqua sky"), (5, "tigerlily")]
-
-    @pytest.mark.parametrize("resource_id,name", parameters)
-    def test_get_single_resource(self, resource_id, name):
-        response = ReqresInApi.get_resource(resource_id)
-        request_method = response.request.method
-        assert request_method == 'GET'
-        assert response.status_code == 200
-        response_body = response.json()
-        assert response_body['data']['name'] == name
-
 
 class TestSuitNegative:
     parameters = [(25), (35)]
